@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className='flex-1'>
           <Link to='/' className='flex gap-2 items-center'>
             <img className='w-auto h-7' src='' alt='' />
-            <span className='font-bold'>Battlefield</span>
+            <span className='font-bold'>FoodUnityHub</span>
           </Link>
         </div>
         <div className='flex-none'>
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <Link to='/addFood' className='justify-between'>Add Food</Link>
               </li>
               <li>
-                <Link to='/myPosted'>My Posted Jobs</Link>
+                <Link to='/availableFood'>Available Food</Link>
               </li>
               <li>
                 <Link to='/myBids'>My Bids</Link>
