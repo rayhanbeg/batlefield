@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { Fade } from "react-awesome-reveal";
 import Loader  from "../components/Loader"
+import { Link } from "react-router-dom";
 
 const Food = () => {
     const [food, setFood] = useState([]);
@@ -28,11 +29,11 @@ const Food = () => {
                 <h1 className=" pb-4">Food</h1>
             </div>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-                {food.slice(0, 6).map((item, index) => (
+                {food.map((item, index) => (
                     <Fade key={index} delay={index * 30} direction="left">
                         <div className="max-w-md rounded-md shadow-md overflow-hidden">
                             <img
-                                src={item.foodImage}
+                                src={item.foodImageURL}
                                 alt={item.foodName}
                                 className="object-cover object-center w-full h-48 sm:h-56 transform transition-transform duration-300 hover:scale-105"
                             />
@@ -49,9 +50,10 @@ const Food = () => {
                                     <img src={item.donatorImageURL} alt="Donator" className="w-8 h-8 rounded-full mr-2" />
                                     <span className="text-sm">{item.donatorName}</span>
                                 </div>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+                                <Link to={`/foodDetails/${item._id}`}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
                                     View Detail
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </Fade>

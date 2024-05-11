@@ -48,7 +48,7 @@ const Navbar = () => {
                 <Link to='/availableFood'>Available Food</Link>
               </li>
               <li>
-                <Link to='/myBids'>My Bids</Link>
+                <Link to='/myFood'>My Food</Link>
               </li>
               <li>
                 <Link to='/bidRequests'>Bid Requests</Link>

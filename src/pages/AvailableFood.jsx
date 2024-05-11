@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { FaLocationDot } from "react-icons/fa6";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 
 
@@ -103,9 +104,9 @@ const AvailableFood = () => {
                                     <img src={item.donatorImageURL} alt="Donator" className="w-8 h-8 rounded-full mr-2" />
                                     <span className="text-sm">{item.donatorName}</span>
                                 </div>
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+                                <Link to={`foodDetails/${item._id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
                                     View Detail
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </Fade>
