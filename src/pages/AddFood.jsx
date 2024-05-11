@@ -42,7 +42,7 @@ const AddFood = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 py-28">
       <h1 className="text-3xl font-bold mb-8 text-center">
         <span className="bg-[hsl(207,44%,49%)] text-white px-3 rounded-md">
           Add

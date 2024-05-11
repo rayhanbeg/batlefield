@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Slider from './Slider';
 const Carousel = () => {
     return (
-        <div className='container px-6 py-10 mx-auto'>
+        <div className='container px-6 py-10 mx-auto pt-28'>
           <Swiper
             spaceBetween={30}
             
