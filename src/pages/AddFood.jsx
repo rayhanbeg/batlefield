@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
     const foodName = e.target.foodName.value;
     const foodImageURL = e.target.foodImageURL.value;
     const donatorImageURL = user?.photoURL;
+    const donatorName = user?.displayName;
     const foodQuantity = e.target.foodQuantity.value;
     const pickupLocation = e.target.pickupLocation.value;
     const expiryDateTime = e.target.expiryDateTime.value;
@@ -17,7 +18,7 @@ import toast from "react-hot-toast";
     const additionalNotes = e.target.additionalNotes.value;
 
     const addInfo = {
-        foodName,foodImageURL,donatorImageURL,foodQuantity,pickupLocation,expiryDateTime,foodStatus,additionalNotes
+        foodName,foodImageURL,donatorImageURL,donatorName,foodQuantity,pickupLocation,expiryDateTime,foodStatus,additionalNotes
       }
       console.log(addInfo);
       try {
