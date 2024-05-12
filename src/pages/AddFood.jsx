@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
   const handleAdd = async (e) => {
     e.preventDefault();
     const foodName = e.target.foodName.value;
@@ -34,8 +36,8 @@ const AddFood = () => {
     try {
       const { data } = await axios.post(`http://localhost:5000/food`, addInfo);
       console.log(data);
-      toast.success("Food Data Added Successfully!");
-      // navigate("/myPosted");
+      toast.success("Food Added Successfully!");
+      navigate("/myFood");
     } catch (err) {
       console.log(err);
     }

@@ -1,66 +1,116 @@
-import { useContext } from "react"
-import { AuthContext } from "../provider/AuthProvider"
-import {Link} from "react-router-dom"
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const {user, logOut} = useContext(AuthContext)
-    return (
-      <div className='navbar bg-base-100 shadow-sm px-[5%] mx-auto fixed z-50'>
-        <div className='flex-1'>
-          <Link to='/' className='flex gap-2 items-center'>
-            <img className='w-auto h-7' src='' alt='' />
-            <span className='font-bold'>FoodUnityHub</span>
-          </Link>
-        </div>
-        <div className='flex-none'>
-          <ul className='menu menu-horizontal px-1'>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-  
-            {!user && <li>
-              <Link to='/login'>Login</Link>
-            </li>}
-          </ul>
-  
-          {user && <div className='dropdown dropdown-end z-50'>
-            <div
-              tabIndex={0}
-              role='button'
-              className='btn btn-ghost btn-circle avatar'
-            >
-              <div title={user?.displayName} className='w-10 rounded-full' >
-                <img
-                  referrerPolicy='no-referrer'
-                  alt='User Profile Photo'
-                  src={user?.photoURL}
-                />
+  const { user, logOut } = useContext(AuthContext);
+  const [showLogout, setShowLogout] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleLogout = () => {
+    setShowLogout(!showLogout);
+  };
+
+  return (
+    <div className="fixed z-50 mx-auto w-full">
+      <nav className="relative bg-white shadow-lg dark:bg-gray-800">
+        <div className="container px-6 py-4 mx-auto">
+          <div className="lg:flex lg:items-center lg:justify-between">
+            <div className="flex items-center justify-between">
+              <a href="#">
+                <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="" />
+              </a>
+              {/* Mobile menu button */}
+              <div className="flex lg:hidden">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  type="button"
+                  className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                  aria-label="toggle menu"
+                >
+                  {!isOpen ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
-            <ul
-              tabIndex={0}
-              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+
+            {/* Mobile Menu open: "block", Menu closed: "hidden" */}
+            <div
+              className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${
+                isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'
+              }`}
             >
-              <li>
-                <Link to='/addFood' className='justify-between'>Add Food</Link>
-              </li>
-              <li>
-                <Link to='/availableFood'>Available Food</Link>
-              </li>
-              <li>
-                <Link to='/myFood'>My Food</Link>
-              </li>
-              <li>
-                <Link to='/bidRequests'>Bid Requests</Link>
-              </li>
-              <li className='mt-2'>
-                <button onClick={logOut} className='bg-gray-200 block text-center'>Logout</button>
-              </li>
-            </ul>
-          </div>}
+              <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
+                <Link to="/" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  Home
+                </Link>
+               {user &&  <Link to="/addFood" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  Add Food
+                </Link>}
+                <Link to="/availableFood" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  Available Food
+                </Link>
+                {user && <Link to="/myFood" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  My Food
+                </Link>}
+              </div>
+
+              <div className="flex items-center mt-4 lg:mt-0">
+                {user ? (
+                  <div className='dropdown dropdown-end z-50'>
+                    <div
+                      tabIndex={0}
+                      role='button'
+                      className='btn btn-ghost btn-circle avatar'
+                      onClick={toggleLogout}
+                    >
+                      <div title={user.displayName} className='w-10 rounded-full'>
+                        <img
+                          referrerPolicy='no-referrer'
+                          alt='User Profile Photo'
+                          src={user.photoURL}
+                        />
+                      </div>
+                    </div>
+                    {showLogout && (
+                      <button onClick={logOut} className=" mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="logout">
+                        Logout
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <Link to="/login" className="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+                    Login
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    )
-  }
-  
-  export default Navbar
+      </nav>
+    </div>
+  );
+};
+
+export default Navbar;
