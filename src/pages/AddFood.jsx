@@ -11,6 +11,7 @@ const AddFood = () => {
     e.preventDefault();
     const foodName = e.target.foodName.value;
     const foodImageURL = e.target.foodImageURL.value;
+    const email = user.email;
     const donatorEmail = e.target.donatorEmail.value;
     const foodQuantity = e.target.foodQuantity.value;
     const pickupLocation = e.target.pickupLocation.value;
@@ -21,6 +22,7 @@ const AddFood = () => {
     const addInfo = {
       foodName,
       foodImageURL,
+      email,
       foodQuantity,
       pickupLocation,
       expiryDateTime,

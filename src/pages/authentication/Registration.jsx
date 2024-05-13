@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import {Link, useNavigate} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 import toast from "react-hot-toast"
 import { AuthContext } from "../../provider/AuthProvider";
 import registerImg from "../../assets/register.json"
@@ -8,6 +8,8 @@ import Lottie from "lottie-react";
 const Registration = () => {
   const {user,setUser,createUser,signInWithGoogle,updateUserProfile} = useContext(AuthContext);
   const navigate = useNavigate()
+  const location = useLocation()
+  const form = location.state || '/'
 
     // signUP
     const handleEmailSignUp = async(e) => {
@@ -36,7 +38,7 @@ const Registration = () => {
     try {
       await signInWithGoogle()
       toast.success('Sign in successful')
-      navigate('/')
+      navigate(form, {replace:true})
     }
     catch (error) {
       console.log(error);

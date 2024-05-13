@@ -1,13 +1,21 @@
-import {Link, useNavigate} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 import loginImg from "../../assets/login.json"
 
 import toast from "react-hot-toast"
 import { AuthContext } from "../../provider/AuthProvider"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import Lottie from "lottie-react"
 const Login = () => {
-  const { signIn, signInWithGoogle} = useContext(AuthContext)
+  const { signIn, signInWithGoogle, user, loading} = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
+  const form = location.state || '/'
+
+  useEffect( ()=> {
+    if(user) {
+      navigate('/')
+    }
+  }, [navigate,user])
 
   // sign in with Google
   const handleGoogleSignIn = async () => {
@@ -32,7 +40,7 @@ const Login = () => {
       await signIn(email,password)
    
       toast.success('Sign in successful')
-      navigate('/')
+      navigate(form, {replace:true})
     }
     catch (error) {
       console.log(error);
@@ -40,7 +48,7 @@ const Login = () => {
     }
   }
 
-
+    if(user || loading) return
 
     return (
       <div className=' flex justify-center items-center min-h-[calc(100vh-306px)] '>
