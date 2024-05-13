@@ -9,6 +9,7 @@ import AvailableFood from "../pages/AvailableFood";
 import FoodDetails from "../pages/FoodDetails";
 import MyFood from "../pages/MyFood";
 import UpdateFood from "../pages/UpdateFood";
+import MyFoodRequest from "../pages/MyFoodRequest";
 
 
 
@@ -63,6 +64,12 @@ const router = createBrowserRouter([
           loader: ({ params }) =>
             fetch(`http://localhost:5000/foodDetails/${params.id}`)
         },
+        {
+          path: '/myFoodRequest',
+        element: <PrivateRoute>
+          <MyFoodRequest/>
+        </PrivateRoute>,
+      },
         
     ]
   },

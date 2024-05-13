@@ -52,11 +52,11 @@ const MyFood = () => {
   };
 
   return (
-    <div className="py-28">
-      <div className="container mx-[2%] my-28">
+    <div className="py-28 mx-[2%] flex justify-center items-center ">
+      <div className="container  my-28">
         <Zoom>
           <div className="">
-            <div className=" mx-auto max-w-screen-lg shadow-md border-b-2 border-purple-400 rounded-b-lg">
+            <div className=" mx-auto max-w-screen-lg rounded-b-lg">
               <div className="overflow-x-auto">
                 <table className="w-full md:w-auto shadow-lg rounded-lg overflow-hidden">
                   <thead className="bg-gray-600 text-white">

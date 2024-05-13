@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import logo from "../assets/image/webLogo.png"
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,14 +15,14 @@ const Navbar = () => {
 
   return (
     <div className="fixed z-50 mx-auto w-full">
-      <nav className="relative bg-white shadow-lg dark:bg-gray-800">
+      <nav className="relative bg-white shadow-lg dark:bg-gray-700">
         <div className="container px-6 py-4 mx-auto">
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
-              <a href="#">
-                <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="" />
-              </a>
-              {/* Mobile menu button */}
+              <Link to="/">
+                <img className="w-auto h-6 sm:h-7" src={logo} alt="" />
+              </Link>
+              {/* Mobile menu button */}৯
               <div className="flex lg:hidden">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -57,7 +59,7 @@ const Navbar = () => {
 
             {/* Mobile Menu open: "block", Menu closed: "hidden" */}
             <div
-              className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${
+              className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-700 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${
                 isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'
               }`}
             >
@@ -73,6 +75,9 @@ const Navbar = () => {
                 </Link>
                 {user && <Link to="/myFood" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                   My Food
+                </Link>}
+                {user && <Link to="/myFoodRequest" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  My Food Request
                 </Link>}
               </div>
 

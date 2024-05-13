@@ -158,7 +158,7 @@ const AddFood = () => {
             id="donatorName"
             name="donatorName"
             className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 w-full"
-            value={user ? user.displayName : "John Doe"}
+            value={user ? user.displayName : " "}
             readOnly
           />
         </div>
@@ -175,7 +175,7 @@ const AddFood = () => {
             id="donatorEmail"
             name="donatorEmail"
             className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 w-full"
-            value={user ? user.email : "john@example.com"}
+            value={user ? user.email : " "}
             readOnly
           />
         </div>

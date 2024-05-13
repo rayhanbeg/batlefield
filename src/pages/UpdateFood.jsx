@@ -57,7 +57,7 @@ const UpdateFood = () => {
 
 
     return (
-        <div className="py-28">
+        <div className="py-2 sm:py-16 md:py-20 lg:py-28">
 <div className="min-h-screen flex items-center justify-center mx-[2%]">
   <div className="bg-white p-8 rounded-lg shadow-md lg:max-w-2xl md:max-w-xl sm:max-w-md w-full">
     <h1 className="text-3xl font-semibold text-center mb-8">
@@ -88,7 +88,7 @@ const UpdateFood = () => {
         />
         <div>
           <p className="text-gray-700 font-medium">Donator: {food?.donator?.donatorName}</p>
-          <p className="text-gray-500">Email: {food?.donator?.donatorEmail}</p>
+          <p title={food?.donator?.donatorEmail} className="text-gray-500">Email: {food?.donator?.donatorEmail.slice(0,9)}...</p>
         </div>
       </div>
 
