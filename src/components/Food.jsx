@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaLocationDot } from "react-icons/fa6";
-import { Fade } from "react-awesome-reveal";
 import Loader  from "../components/Loader"
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const Food = () => {
     const [food, setFood] = useState([]);
     const [loading, setLoading] = useState(true);
+    console.log(food);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,44 +23,43 @@ const Food = () => {
 
 
     return (
-        <div className="container mx-auto flex justify-center">
-        <div className="max-w-4xl">
-            <div className="text-center lg:text-3xl mt-12 text-[#87CEEB] font-bold sm:font-bold md:font-semibold lg:font-extrabold">
-                <h1 className=" pb-4">Food</h1>
-            </div>
+        <div className="my-28">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl font-bold text-center mt-12 mb-8">Donation Food</h1>
+          <div className="flex justify-center items-center">
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-                {food.map((item, index) => (
-                    <Fade key={index} delay={index * 30} direction="left">
-                        <div className="max-w-md rounded-md shadow-md overflow-hidden">
-                            <img
-                                src={item.foodImageURL}
-                                alt={item.foodName}
-                                className="object-cover object-center w-full h-48 sm:h-56 transform transition-transform duration-300 hover:scale-105"
-                            />
-                            <div className="p-4">
-                                <h1 className="text-[#4682B4] font-semibold flex items-center">
-                                    <FaLocationDot className="mr-1" />
-                                    <span>Pick up: {item.pickupLocation}</span>
-                                </h1>
-                                <h1 className="text-lg font-semibold">{item.foodName}</h1>
-                                <p className="text-sm">Quantity: {item.foodQuantity}</p>
-                                <p className="text-sm">Expired Date/Time: {item.expiryDateTime}</p>
-                                <p className="text-sm">{item.additionalNotes}</p>
-                                <div className="flex items-center">
-                                    <img src={item.donatorImageURL} alt="Donator" className="w-8 h-8 rounded-full mr-2" />
-                                    <span className="text-sm">{item.donatorName}</span>
-                                </div>
-                                <Link to={`/foodDetails/${item._id}`}
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
-                                    View Detail
-                                </Link>
-                            </div>
-                        </div>
-                    </Fade>
-                ))}
+              {food.map((item, index) => (
+                <Fade key={index} delay={index * 30} direction="left">
+                    <div  className="w-full max-w-sm sm:max-w-md overflow-hidden bg-gray-100 rounded-lg shadow-lg">
+                  <div className="max-w-md rounded-md shadow-md overflow-hidden">
+                    <img className="object-cover object-center w-full h-full sm:h-56 transform transition-transform duration-300 hover:scale-105" src={item.foodImageURL} alt="food" />
+                    <div className="p-4">
+                      <h2 className="text-lg font-semibold mb-2">{item.foodName}</h2>
+                      <div className="flex items-center mb-2">
+                        <img src={item?.donator?.donatorImageURL} alt="donator" className="w-8 h-8 rounded-full mr-2" />
+                        <span className="text-gray-700 text-sm">{item?.donator?.donatorName}</span>
+                        <span>{" - "}Donator</span>
+                      </div>
+                      <p className="text-gray-700 text-sm mb-2">Quantity: {item.foodQuantity}</p>
+                      <p className="text-gray-700 text-sm mb-2">Location: {item.pickupLocation}</p>
+                      <p className="text-gray-700 text-sm mb-2">Expiry Date: {new Date(item.expiryDateTime).toLocaleDateString()}</p>
+                      <p className="text-gray-700 text-sm mb-2">Additional Notes: {item.additionalNotes.slice(0, 20)}</p>
+                      <div className="mt-2 w-full text-center">
+                        <Link to={`/foodDetails/${item._id}`} className="block bg-[#4682B4] hover:bg-[#4169E1] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-sm">
+                          View Details
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </Fade>
+              ))}
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
+    
     
     );
 };

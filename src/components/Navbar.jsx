@@ -22,7 +22,7 @@ const Navbar = () => {
               <Link to="/">
                 <img className="w-auto h-6 sm:h-7" src={logo} alt="" />
               </Link>
-              {/* Mobile menu button */}৯
+              {/* Mobile menu button */}
               <div className="flex lg:hidden">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
