@@ -10,6 +10,7 @@ const FoodDetails = () => {
   const [food, setFood] = useState({});
   const { user } = useContext(AuthContext);
   const [additionalNotes, setAdditionalNotes] = useState("");
+  let requestedDate = new Date().toLocaleString();
   const {
     foodName,
     foodImageURL,
@@ -43,15 +44,17 @@ const FoodDetails = () => {
       foodId: food._id,
       donatorEmail: donator.donatorEmail,
       donatorName: donator.donatorName,
+      email:user.email,
       pickupLocation: pickupLocation,
       expiryDateTime: new Date(expiryDateTime).toLocaleDateString(),
       additionalNotes,
+      requestedDate,
     };
     console.log(requestData);
     try {
       const { data } = await axios.post(`http://localhost:5000/requestFood`, requestData);
       console.log(data);
-      toast.success("Food Added Successfully!");
+      toast.success("Requested Successful!");
       // navigate("/myFood");
     } catch (err) {
       console.log(err);
@@ -134,7 +137,7 @@ const FoodDetails = () => {
                         <p>Food Donator Email: {donator?.donatorEmail}</p>
                         <p>Food Donator Name: {donator?.donatorName}</p>
                         <p>User Email: {user?.email}</p>
-                        <p>Request Date: {new Date().toLocaleString()}</p>
+                        <p>Request Date: {requestedDate}</p>
                         <p>Pickup Location: {pickupLocation}</p>
                         <p>Expire Date: {new Date(expiryDateTime).toLocaleDateString()}</p>
                       </div>

@@ -10,6 +10,7 @@ import FoodDetails from "../pages/FoodDetails";
 import MyFood from "../pages/MyFood";
 import UpdateFood from "../pages/UpdateFood";
 import MyFoodRequest from "../pages/MyFoodRequest";
+import ErrorPage from "../pages/ErrorPage";
 
 
 
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    // errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage/>,
     children: [
         {
             path: '/',

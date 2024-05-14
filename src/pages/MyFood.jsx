@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaLocationDot } from "react-icons/fa6";
 import { Zoom } from "react-awesome-reveal";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -93,7 +92,7 @@ const MyFood = () => {
                       </td>
                       <td className="px-2 md:px-4 py-2">
                         <div className="flex items-center space-x-1 text-gray-500 text-xs md:text-sm truncate">
-                          <FaLocationDot className="text-purple-500" />
+                          
                           <p>{cart?.pickupLocation}</p>
                         </div>
                       </td>
