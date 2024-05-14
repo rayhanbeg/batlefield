@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
-
+import { motion, useScroll } from "framer-motion"
 
 
 
