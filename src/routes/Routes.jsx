@@ -63,7 +63,7 @@ const router = createBrowserRouter([
             </PrivateRoute>
           ),
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/foodDetails/${params.id}`)
+            fetch(`https://server-kappa-gray.vercel.app/foodDetails/${params.id}`)
         },
         {
           path: '/myFoodRequest',

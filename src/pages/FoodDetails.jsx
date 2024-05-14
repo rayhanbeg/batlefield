@@ -21,7 +21,7 @@ const FoodDetails = () => {
   } = food || {};
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foodDetails/${id}`)
+    fetch(`https://server-kappa-gray.vercel.app/foodDetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setFood(data);
@@ -52,7 +52,7 @@ const FoodDetails = () => {
     };
     console.log(requestData);
     try {
-      const { data } = await axios.post(`http://localhost:5000/requestFood`, requestData);
+      const { data } = await axios.post(`https://server-kappa-gray.vercel.app/requestFood`, requestData);
       console.log(data);
       toast.success("Requested Successful!");
       // navigate("/myFood");

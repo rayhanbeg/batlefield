@@ -19,7 +19,7 @@ const AvailableFood = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get(`http://localhost:5000/food/foodStatus`);
+      const { data } = await axios.get(`https://server-kappa-gray.vercel.app/food/foodStatus`);
       setAvailable(data);
       setSortedAvailable([...data])
       setLoading(false)
@@ -97,7 +97,7 @@ const AvailableFood = () => {
                       <p className="text-gray-700 text-sm mb-2">Quantity: {item.foodQuantity}</p>
                       <p className="text-gray-700 text-sm mb-2">Location: {item.pickupLocation}</p>
                       <p className="text-gray-700 text-sm mb-2">Expiry Date: {new Date(item.expiryDateTime).toLocaleDateString()}</p>
-                      <p className="text-gray-700 text-sm mb-2">Additional Notes: {item.additionalNotes.slice(0, 20)}</p>
+                      <p title={item.additionalNotes} className="text-gray-700 text-sm mb-2">Additional Notes: {item.additionalNotes.slice(0, 15)}...</p>
                       <div className="mt-2 w-full text-center">
                         <Link to={`/foodDetails/${item._id}`} className="block bg-[#4682B4] hover:bg-[#4169E1] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-sm">
                           View Details

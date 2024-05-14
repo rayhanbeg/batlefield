@@ -56,12 +56,12 @@ const UpdateFood = () => {
   };
 
   return (
-    <div className="py-2 sm:py-16 md:py-20 lg:py-28">
-      <div className="min-h-screen flex items-center justify-center mx-[2%]">
+    <div className="py-14 sm:py-20 md:py-24 lg:py-28">
+      <div className=" flex items-center justify-center mx-[2%]">
         <div className="bg-white p-8 rounded-lg shadow-md lg:max-w-2xl md:max-w-xl sm:max-w-md w-full">
-          <h1 className="text-3xl font-semibold text-center mb-8">
-            <span className="text-purple-500">Update</span> Tourists Spot
-          </h1>
+        <div className="text-center lg:text-3xl mb-12 font-bold sm:font-bold lg:font-semibold">
+                <h1 className="p-4 ">Update Your Food</h1>
+            </div>
           <form onSubmit={handleUpdate} className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="foodName" className="block text-gray-700">
@@ -73,7 +73,7 @@ const UpdateFood = () => {
                 name="foodName"
                 required
                 className="form-input mt-1 w-full h-8 rounded-md shadow-sm"
-                defaultValue="testing"
+                defaultValue={food?.foodName}
               />
             </div>
 

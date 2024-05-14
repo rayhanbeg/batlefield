@@ -22,7 +22,7 @@ const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
      const result = await signInWithGoogle()
-     const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+     const {data} = await axios.post(`https://server-kappa-gray.vercel.app/jwt`,{email: result?.user?.email},
       {withCredentials: true}
      )
      console.log(data);
@@ -43,7 +43,7 @@ const Login = () => {
     const password = e.target.password.value
     try {
       const result = await signIn(email,password)
-      const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+      const {data} = await axios.post(`https://server-kappa-gray.vercel.app/jwt`,{email: result?.user?.email},
       {withCredentials: true}
      )
      console.log(data);

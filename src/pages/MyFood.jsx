@@ -5,17 +5,20 @@ import { Link } from "react-router-dom";
 import { Zoom } from "react-awesome-reveal";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import Loader from "../components/Loader";
 
 const MyFood = () => {
   const [food, setFood] = useState([]);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getData();
   }, [user]);
   const getData = async () => {
-    const { data } = await axios(`http://localhost:5000/foods/${user?.email}`, {withCredentials:true});
+    const { data } = await axios(`https://server-kappa-gray.vercel.app/foods/${user?.email}`, {withCredentials:true});
     setFood(data);
+    setLoading(false)
   };
   console.log(food);
   // delete
@@ -32,7 +35,7 @@ const MyFood = () => {
 
     if (confirmation.isConfirmed) {
       try {
-        const { data } = await axios.delete(`http://localhost:5000/food/${id}`);
+        const { data } = await axios.delete(`https://server-kappa-gray.vercel.app/food/${id}`);
         console.log(data);
         Swal.fire({
           title: "Deleted!",
@@ -48,6 +51,8 @@ const MyFood = () => {
       }
     }
   };
+
+  if(loading) return <Loader/>
 
   return (
     <div className=" flex justify-center items-center ">

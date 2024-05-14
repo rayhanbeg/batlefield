@@ -1,20 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
+import Loader from "../components/Loader";
 
 const MyFoodRequest = () => {
   const [food, setFood] = useState();
   const { user } = useContext(AuthContext);
-  
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getData();
   }, [user]);
   const getData = async () => {
-    const { data } = await axios(`http://localhost:5000/myRequest/${user?.email}`, {withCredentials: true});
+    const { data } = await axios(`https://server-kappa-gray.vercel.app/myRequest/${user?.email}`, {withCredentials: true});
     setFood(data);
+    setLoading(false)
   };
   console.log(food);
+
+  if(loading) return <Loader/>
   return (
     <div className="flex justify-center items-center mx-[4%] ">
      <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800 my-24 sm:my-24 md:my-28 lg:my-32">

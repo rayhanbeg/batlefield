@@ -26,7 +26,7 @@ const Registration = () => {
           console.log(result);
           await updateUserProfile(name, photo)
           setUser({user, photoURL: photo, displayName: name})
-          const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+          const {data} = await axios.post(`https://server-kappa-gray.vercel.app/jwt`,{email: result?.user?.email},
           {withCredentials: true}
          )
          console.log(data);
@@ -42,7 +42,7 @@ const Registration = () => {
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithGoogle()
-      const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+      const {data} = await axios.post(`https://server-kappa-gray.vercel.app/jwt`,{email: result?.user?.email},
       {withCredentials: true}
      )
      console.log(data);

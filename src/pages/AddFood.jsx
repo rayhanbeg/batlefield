@@ -36,7 +36,7 @@ const AddFood = () => {
     };
     console.log(addInfo);
     try {
-      const { data } = await axios.post(`http://localhost:5000/food`, addInfo);
+      const { data } = await axios.post(`https://server-kappa-gray.vercel.app/food`, addInfo);
       console.log(data);
       toast.success("Food Added Successfully!");
       navigate("/myFood");
