@@ -4,6 +4,7 @@ import toast from "react-hot-toast"
 import { AuthContext } from "../../provider/AuthProvider";
 import registerImg from "../../assets/register.json"
 import Lottie from "lottie-react";
+import axios from "axios";
 
 const Registration = () => {
   const {user,setUser,createUser,signInWithGoogle,updateUserProfile} = useContext(AuthContext);
@@ -25,6 +26,10 @@ const Registration = () => {
           console.log(result);
           await updateUserProfile(name, photo)
           setUser({user, photoURL: photo, displayName: name})
+          const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+          {withCredentials: true}
+         )
+         console.log(data);
           toast.success('Sign up successful')
           navigate('/')
         }
@@ -36,7 +41,11 @@ const Registration = () => {
   // sign in with Google
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle()
+      const result = await signInWithGoogle()
+      const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+      {withCredentials: true}
+     )
+     console.log(data);
       toast.success('Sign in successful')
       navigate(form, {replace:true})
     }

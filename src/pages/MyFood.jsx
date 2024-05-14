@@ -14,11 +14,10 @@ const MyFood = () => {
     getData();
   }, [user]);
   const getData = async () => {
-    const { data } = await axios(`http://localhost:5000/foods/${user?.email}`);
+    const { data } = await axios(`http://localhost:5000/foods/${user?.email}`, {withCredentials:true});
     setFood(data);
   };
   console.log(food);
-
   // delete
   const handleDelete = async (id) => {
     const confirmation = await Swal.fire({

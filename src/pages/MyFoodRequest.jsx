@@ -11,7 +11,7 @@ const MyFoodRequest = () => {
     getData();
   }, [user]);
   const getData = async () => {
-    const { data } = await axios(`http://localhost:5000/myRequest/${user?.email}`);
+    const { data } = await axios(`http://localhost:5000/myRequest/${user?.email}`, {withCredentials: true});
     setFood(data);
   };
   console.log(food);

@@ -5,6 +5,7 @@ import toast from "react-hot-toast"
 import { AuthContext } from "../../provider/AuthProvider"
 import { useContext, useEffect } from "react"
 import Lottie from "lottie-react"
+import axios from "axios"
 const Login = () => {
   const { signIn, signInWithGoogle, user, loading} = useContext(AuthContext)
   const navigate = useNavigate()
@@ -20,9 +21,13 @@ const Login = () => {
   // sign in with Google
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle()
+     const result = await signInWithGoogle()
+     const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+      {withCredentials: true}
+     )
+     console.log(data);
       toast.success('Sign in successful')
-      navigate('/')
+      navigate(form, {replace:true})
     }
     catch (error) {
       console.log(error);
@@ -37,7 +42,11 @@ const Login = () => {
     const email = e.target.email.value
     const password = e.target.password.value
     try {
-      await signIn(email,password)
+      const result = await signIn(email,password)
+      const {data} = await axios.post(`http://localhost:5000/jwt`,{email: result?.user?.email},
+      {withCredentials: true}
+     )
+     console.log(data);
    
       toast.success('Sign in successful')
       navigate(form, {replace:true})
