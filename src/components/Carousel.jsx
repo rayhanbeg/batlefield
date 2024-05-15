@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import "../../public/slider.css"
+import "../Slider.css"
 
 import { EffectCoverflow, Autoplay, Pagination, Navigation } from 'swiper/modules';
 import slideImage1 from "../assets/image/slide1.jpg"
@@ -14,7 +14,7 @@ import slideImage5 from "../assets/image/slide5.jpg"
 import slideImage6 from "../assets/image/slide6.jpg"
 const Carousel = () => {
     return (
-        <div className="py-16 lg:py-20">
+        <div className="py-16 lg:py-20 flex justify-center items-center mx-auto">
            <div className="container">
       <h1 className="heading"></h1>
       <Swiper

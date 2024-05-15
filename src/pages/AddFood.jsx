@@ -46,7 +46,7 @@ const AddFood = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 py-28">
+    <div className="container mx-auto py-20 md:py-24 lg:py-28">
       <h1 className="text-3xl font-bold mb-8 text-center">
         <span className="bg-[hsl(207,44%,49%)] text-white px-3 rounded-md">
           Add
@@ -55,9 +55,10 @@ const AddFood = () => {
       </h1>
       <form
         onSubmit={handleAdd}
-        className="grid grid-cols-2 gap-6 max-w-4xl mx-auto"
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto"
       >
-        <div className="col-span-2">
+        {/* Food Name */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-3">
           <label
             htmlFor="foodName"
             className="block text-gray-700 font-semibold mb-2"
@@ -72,8 +73,9 @@ const AddFood = () => {
             required
           />
         </div>
-
-        <div>
+        
+        {/* Food Image URL */}
+        <div className="col-span-1 md:col-span-2">
           <label
             htmlFor="foodImageURL"
             className="block text-gray-700 font-semibold mb-2"
@@ -89,7 +91,8 @@ const AddFood = () => {
           />
         </div>
 
-        <div>
+        {/* Food Quantity */}
+        <div className="col-span-1 md:col-span-1">
           <label
             htmlFor="foodQuantity"
             className="block text-gray-700 font-semibold mb-2"
@@ -105,7 +108,8 @@ const AddFood = () => {
           />
         </div>
 
-        <div>
+        {/* Pickup Location */}
+        <div className="col-span-1 md:col-span-1">
           <label
             htmlFor="pickupLocation"
             className="block text-gray-700 font-semibold mb-2"
@@ -121,7 +125,8 @@ const AddFood = () => {
           />
         </div>
 
-        <div>
+        {/* Expiry Date/Time */}
+        <div className="col-span-1">
           <label
             htmlFor="expiryDateTime"
             className="block text-gray-700 font-semibold mb-2"
@@ -135,7 +140,9 @@ const AddFood = () => {
             className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 w-full"
           />
         </div>
-        <div className="col-span-2">
+
+        {/* Additional Notes */}
+        <div className="col-span-1">
           <label
             htmlFor="additionalNotes"
             className="block text-gray-700 font-semibold mb-2"
@@ -145,10 +152,12 @@ const AddFood = () => {
           <textarea
             id="additionalNotes"
             name="additionalNotes"
-            className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 w-full h-24" // Adjust the height as needed
+            className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 w-full h-24"
           ></textarea>
         </div>
-        <div className="col-span-2">
+
+        {/* Donator Name */}
+        <div className="col-span-1">
           <label
             htmlFor="donatorName"
             className="block text-gray-700 font-semibold mb-2"
@@ -165,7 +174,8 @@ const AddFood = () => {
           />
         </div>
 
-        <div className="col-span-2">
+        {/* Donator Email */}
+        <div className="col-span-1">
           <label
             htmlFor="donatorEmail"
             className="block text-gray-700 font-semibold mb-2"
@@ -182,7 +192,8 @@ const AddFood = () => {
           />
         </div>
 
-        <div className="col-span-2">
+        {/* Donator Photo */}
+        <div className="col-span-1">
           <label
             htmlFor="donatorPhotoURL"
             className="block text-gray-700 font-semibold mb-2"
@@ -196,7 +207,8 @@ const AddFood = () => {
           />
         </div>
 
-        <div className="col-span-2">
+        {/* Food Status */}
+        <div className="col-span-1">
           <label
             htmlFor="foodStatus"
             className="block text-gray-700 font-semibold mb-2"
@@ -213,9 +225,10 @@ const AddFood = () => {
           </select>
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
-          className="col-span-2 bg-[#4682B4] hover:bg-[#4a67bc] text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+          className="col-span-1 md:col-span-2 lg:col-span-3 bg-[#4682B4] hover:bg-[#4a67bc] text-white py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
         >
           Add
         </button>

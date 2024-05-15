@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 
 const AvailableFood = () => {
+  
   // const {user} = useContext(AuthContext)
   const [available, setAvailable] = useState([]);
   const [loading, setLoading] = useState(true)
@@ -87,7 +88,7 @@ const AvailableFood = () => {
               <div className="w-full max-w-md overflow-hidden bg-gray-100 rounded-lg shadow-lg">
                 <div className="max-w-full rounded-md shadow-md overflow-hidden">
                   <img
-                    className="object-cover object-center w-full h-full sm:h-56 transform transition-transform duration-300 hover:scale-105"
+                    className="object-cover object-center w-full h-64 lg:h-56 transform transition-transform duration-300 hover:scale-105"
                     src={item.foodImageURL}
                     alt="food"
                   />

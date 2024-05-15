@@ -20,53 +20,42 @@ const MyFoodRequest = () => {
 
   if(loading) return <Loader/>
   return (
-    <div className="flex justify-center items-center mx-[4%] ">
-     <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800 my-24 sm:my-24 md:my-28 lg:my-32">
-    <h2 className="mb-8 text-2xl font-semibold leading-tight text-center">My Requested Food</h2>
-    <div className="overflow-x-auto">
-        <table className="min-w-full text-xs">
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col className="" />
-            </colgroup>
-            <thead className="dark:bg-gray-300">
-                <tr className="text-left">
-                    
-                    <th className="p-3">Donar Name</th>
-                    <th className="p-3">Pickup Location</th>
-                    <th className="p-3">Expire Date</th>
-                    <th className="p-3">Request Date</th>
-                    
-                </tr>
-            </thead>
-            {food?.map((item, index) => <tbody key={index}>
-                <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-                    <td className="p-3">
-                        <p>{item?.donatorName}</p>
-                    </td>
-                    <td className="p-3">
-                        <p>{item?.pickupLocation}</p>
-                    </td>
-                    <td className="p-3">
-                        <p>{item?.expiryDateTime}</p>
-                       
-                    </td>
-                    <td className="p-3">
-                        <p>{item?.requestedDate}</p>
-                        
-                    </td>
-                </tr>
-               
-            </tbody>)}
+  <div className="py-14 sm:py-20 md:py-24 lg:py-28">
+      <div className="flex justify-center items-center mx-auto md:mx-[4%]">
+    <div className="container p-4 sm:p-6 mx-auto dark:text-gray-800 my-8 sm:my-10 md:my-12 lg:my-16 bg-white rounded-lg shadow-md">
+      <h2 className="mb-6 text-lg font-semibold leading-tight text-center">My Requested Food</h2>
+      <div className="overflow-x-auto">
+        <table className="min-w-full text-sm">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <thead className="bg-gray-200 dark:bg-gray-300">
+            <tr className="text-left">
+              <th className="p-3">Donor Name</th>
+              <th className="p-3">Pickup Location</th>
+              <th className="p-3">Expire Date</th>
+              <th className="p-3">Request Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {food?.map((item, index) => (
+              <tr key={index} className="border-b border-opacity-20 dark:border-gray-300">
+                <td className="p-3">{item?.donatorName}</td>
+                <td className="p-3">{item?.pickupLocation}</td>
+                <td className="p-3">{item?.expiryDateTime}</td>
+                <td className="p-3">{item?.requestedDate}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
+      </div>
     </div>
-</div>
-
-    </div>
+  </div>
+  </div>
+  
   );
 };
 
