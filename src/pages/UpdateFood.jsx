@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -7,6 +7,12 @@ import axios from "axios";
 import ReactDatePicker from "react-datepicker";
 
 const UpdateFood = () => {
+
+    // routes title
+    useEffect(() => {
+      document.title="FoodUnityHub || UpdateFood"
+  }, [])
+  
   const food = useLoaderData();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);

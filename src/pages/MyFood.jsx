@@ -2,12 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Zoom } from "react-awesome-reveal";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import Loader from "../components/Loader";
 
 const MyFood = () => {
+
+    // routes title
+    useEffect(() => {
+      document.title="FoodUnityHub || MyFood"
+  }, [])
+
   const [food, setFood] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(true)

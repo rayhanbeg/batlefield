@@ -5,7 +5,7 @@ import Food from "../components/Food";
 const Home = () => {
 
     useEffect(() => {
-        document.title="FoodUnityHub || home"
+        document.title="FoodUnityHub || Home"
     }, [])
 
     return (

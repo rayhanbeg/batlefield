@@ -4,6 +4,13 @@ import axios from "axios";
 import Loader from "../components/Loader";
 
 const MyFoodRequest = () => {
+
+      // routes title
+  useEffect(() => {
+    document.title="FoodUnityHub || MyFoodRequest"
+}, [])
+
+
   const [food, setFood] = useState();
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(true)

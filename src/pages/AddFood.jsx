@@ -1,10 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const AddFood = () => {
+
+  // routes title
+  useEffect(() => {
+    document.title="FoodUnityHub || AddFood"
+}, [])
+
+
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
   const handleAdd = async (e) => {

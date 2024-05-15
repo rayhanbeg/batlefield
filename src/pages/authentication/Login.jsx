@@ -7,6 +7,13 @@ import { useContext, useEffect } from "react"
 import Lottie from "lottie-react"
 import axios from "axios"
 const Login = () => {
+
+    // routes title
+    useEffect(() => {
+      document.title="FoodUnityHub || Login"
+  }, [])
+
+
   const { signIn, signInWithGoogle, user, loading} = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation()

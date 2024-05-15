@@ -5,6 +5,13 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const FoodDetails = () => {
+
+    // routes title
+    useEffect(() => {
+      document.title="FoodUnityHub || FoodDetails"
+  }, [])
+
+
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const [food, setFood] = useState({});

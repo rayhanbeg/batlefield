@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import toast from "react-hot-toast"
 import { AuthContext } from "../../provider/AuthProvider";
@@ -7,6 +7,13 @@ import Lottie from "lottie-react";
 import axios from "axios";
 
 const Registration = () => {
+
+    // routes title
+    useEffect(() => {
+      document.title="FoodUnityHub || SignUp"
+  }, [])
+
+
   const {user,setUser,createUser,signInWithGoogle,updateUserProfile} = useContext(AuthContext);
   const navigate = useNavigate()
   const location = useLocation()

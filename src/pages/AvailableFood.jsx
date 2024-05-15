@@ -8,7 +8,13 @@ import { Link } from "react-router-dom";
 
 
 const AvailableFood = () => {
-  
+
+// Routes title
+  useEffect(() => {
+    document.title="FoodUnityHub || AvailableFood"
+}, [])
+
+
   // const {user} = useContext(AuthContext)
   const [available, setAvailable] = useState([]);
   const [loading, setLoading] = useState(true)
