@@ -1,6 +1,6 @@
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import loginImg from "../../assets/login.json"
-
+import webLogo from "../../assets/image/webLogo.png"
 import toast from "react-hot-toast"
 import { AuthContext } from "../../provider/AuthProvider"
 import { useContext, useEffect } from "react"
@@ -82,9 +82,10 @@ const Login = () => {
               />
             </div>
   
-            <p className='mt-3 text-xl text-center text-gray-600 '>
+            <h1 className='mt-3 text-xl text-center text-gray-600 '>
               Welcome back!
-            </p>
+              
+            </h1>
   
             <div onClick={handleGoogleSignIn} className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
               <div className='px-4 py-2'>

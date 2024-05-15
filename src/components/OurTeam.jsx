@@ -29,9 +29,10 @@ const OurTeam = () => {
 
       <div className="grid gap-8 mt-8 sm:mt-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <div className="w-full max-w-xs mx-auto">
-          <div className="mx-auto text-center">
+          <div className="mx-auto text-center ">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg"
+            
+              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img1}
               alt="avatar"
             />
@@ -46,7 +47,7 @@ const OurTeam = () => {
         <div className="w-full max-w-xs mx-auto">
           <div className="mx-auto text-center">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg"
+              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img2}
               alt="avatar"
             />
@@ -60,7 +61,7 @@ const OurTeam = () => {
         <div className="w-full max-w-xs mx-auto">
           <div className="mx-auto text-center">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg"
+              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img3}
               alt="avatar"
             />
@@ -74,7 +75,7 @@ const OurTeam = () => {
         <div className="w-full max-w-xs mx-auto">
           <div className="mx-auto text-center">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg"
+              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img4}
               alt="avatar"
             />
