@@ -29,8 +29,8 @@ const ErrorPage = () => {
             <p>Follow us on social media:</p>
             <div className="flex space-x-4 mt-2 justify-center items-center mx-auto">
               <a target="blank" href="https://www.facebook.com/rayhan4030" className="text-blue-500 hover:text-blue-700">Facebook</a>
-              <a target="blank" href="https://www.instagram.com/n.h._rafi/" className="text-blue-500 hover:text-blue-700">Twitter</a>
-              <a href="#" className="text-blue-500 hover:text-blue-700">Instagram</a>
+              <a target="blank" href="#" className="text-blue-500 hover:text-blue-700">Twitter</a>
+              <a target="blank" href="https://www.instagram.com/n.h._rafi/" className="text-blue-500 hover:text-blue-700">Instagram</a>
             </div>
             <p>123 Dhakkhinkhan, Dhaka, Bangladesh</p>
           </div>
