@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
-import logo from "../assets/image/webLogo.png";
+import logo from "../assets/image/webLogo.jpg";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,12 +14,15 @@ const Navbar = () => {
 
   return (
     <div className="fixed z-50 mx-auto w-full">
-      <nav className="relative bg-white shadow-lg dark:bg-gray-700">
+      <nav className="relative bg-gray-700">
         <div className="container px-6 py-4 mx-auto">
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
               <Link to="/">
-                <img className="w-auto h-6 sm:h-7" src={logo} alt="" />
+                {/* <img className="w-auto h-6 sm:h-7" src={logo} alt="" /> */}
+                <h1 className="text-lg font-semibold md:text-2xl text-white">
+                  FoodUnityHub
+                </h1>
               </Link>
               {/* Mobile menu button */}
               <div className="flex lg:hidden">
@@ -66,7 +69,7 @@ const Navbar = () => {
 
             {/* Mobile Menu open: "block", Menu closed: "hidden" */}
             <div
-              className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-700 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${
+              className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-gray-700 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${
                 isOpen
                   ? "translate-x-0 opacity-100"
                   : "opacity-0 -translate-x-full"
@@ -75,28 +78,28 @@ const Navbar = () => {
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
                 <Link
                   to="/"
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="px-3 py-2 mx-3 mt-2 transition-colors duration-300 transform rounded-md lg:mt-0 text-gray-200 hover:bg-gray-700"
                 >
                   Home
                 </Link>
                 {user && (
                   <Link
                     to="/addFood"
-                    className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 text-gray-200 hover:bg-gray-700"
                   >
                     Add Food
                   </Link>
                 )}
                 <Link
                   to="/availableFood"
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 text-gray-200 hover:bg-gray-700"
                 >
                   Available Food
                 </Link>
                 {user && (
                   <Link
                     to="/myFood"
-                    className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 text-gray-200 hover:bg-gray-700"
                   >
                     My Food
                   </Link>
@@ -104,7 +107,7 @@ const Navbar = () => {
                 {user && (
                   <Link
                     to="/myFoodRequest"
-                    className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 text-gray-200 hover:bg-gray-700"
                   >
                     My Food Request
                   </Link>
@@ -112,7 +115,7 @@ const Navbar = () => {
                 {!user && (
                   <Link
                     to="/login"
-                    className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 text-gray-200 hover:bg-gray-700"
                   >
                     Login
                   </Link>
@@ -158,7 +161,7 @@ const Navbar = () => {
                     {/* This div will only be visible on small devices */}
                     <Link
                       to="/login"
-                      className=" text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+                      className=" transition-colors duration-300 transform lg:block text-gray-200  hover:text-gray-400 focus:text-gray-400 focus:outline-none"
                       aria-label="show notifications"
                     >
                       Login

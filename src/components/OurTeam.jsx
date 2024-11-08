@@ -32,7 +32,7 @@ const OurTeam = () => {
           <div className="mx-auto text-center ">
             <img
             
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
+              className="object-cover object-center w-full h-72 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img1}
               alt="avatar"
             />
@@ -47,7 +47,7 @@ const OurTeam = () => {
         <div className="w-full max-w-xs mx-auto">
           <div className="mx-auto text-center">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
+              className="object-cover object-center w-full h-72 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img2}
               alt="avatar"
             />
@@ -61,7 +61,7 @@ const OurTeam = () => {
         <div className="w-full max-w-xs mx-auto">
           <div className="mx-auto text-center">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
+              className="object-cover object-center w-full h-72 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img3}
               alt="avatar"
             />
@@ -75,7 +75,7 @@ const OurTeam = () => {
         <div className="w-full max-w-xs mx-auto">
           <div className="mx-auto text-center">
             <img
-              className="object-cover object-center w-full h-64 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
+              className="object-cover object-center w-full h-72 mx-auto rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105"
               src={img4}
               alt="avatar"
             />

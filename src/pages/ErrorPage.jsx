@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import errorPage from "../assets/404.json";
 import { Link } from "react-router-dom";
-import logo from "../assets/image/webLogo.png"
+import logo from "../assets/image/webLogo.jpg"
 
 const ErrorPage = () => {
   return (

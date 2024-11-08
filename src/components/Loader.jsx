@@ -1,10 +1,9 @@
-import Lottie from "lottie-react";
-import loader from "../assets/Loader.json"
+import { ClipLoader } from "react-spinners";
 const Loader = () => {
     return (
         <div className=" flex justify-center items-center mx-auto py-44">
-             <div className="w-[25%] lg:w-[15%]">
-                <Lottie animationData={loader} className="w-full h-auto" />
+             <div className="">
+             <ClipLoader  className="w-full" />
             </div>
         </div>
     );

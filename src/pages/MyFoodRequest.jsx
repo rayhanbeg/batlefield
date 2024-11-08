@@ -19,9 +19,18 @@ const MyFoodRequest = () => {
     getData();
   }, [user]);
   const getData = async () => {
-    const { data } = await axios(`https://server-kappa-gray.vercel.app/myRequest/${user?.email}`, {withCredentials: true});
-    setFood(data);
-    setLoading(false)
+    if (!user?.email) return; // Prevents calling API if user email is undefined
+  
+    try {
+      console.log("Requesting data for email:", user.email);
+      const { data } = await axios(`https://server-kappa-gray.vercel.app/myRequest/${user.email}`, { withCredentials: true });
+      console.log("Data received:", data);
+      setFood(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   console.log(food);
 

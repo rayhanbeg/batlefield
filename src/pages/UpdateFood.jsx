@@ -49,7 +49,7 @@ const UpdateFood = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/food/${food._id}`,
+        `https://server-kappa-gray.vercel.app/food/${food._id}`,
         addInfo
       );
       console.log(data);
